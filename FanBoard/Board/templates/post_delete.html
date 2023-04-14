@@ -1,0 +1,36 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %} Deleting {% endblock title %}
+
+{% block content %}
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <form align="center" action="" method="post">
+        {% csrf_token %}
+        <h3 align="center" class="mb-2"> Do you want to delete this post? </h3>
+        <input type="submit" value="Yes" />
+    </form>
+</section>
+<hr>
+
+
+<div class="col-md-12">
+    <div class="blog-entry ftco-animate d-md-flex">
+        <div class="text text-2 pl-md-4">
+            <h3 class="mb-2">
+                <a href="">{{ object.post_name}}</a>
+            </h3>
+                <div class="meta-wrap">
+                     <p class="meta">
+                         <span><i class="icon-calendar mr-2"></i>{{ object.time_in|date:'d M Y' }}</span>
+                         <span><i class="icon-user mr-2"></i>{{ object.post_author }}</span>
+                     </p>
+                 </div>
+                 <p class="mb-4">{{ object.post_text}}</p>
+             </div>
+         </div>
+     </div>
+
+
+{% endblock content %}
+

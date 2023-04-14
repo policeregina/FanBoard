@@ -1,0 +1,42 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+    Blacksmiths
+{% endblock title %}
+
+{% block content %}
+
+    {% if posts %}
+    {% for p in posts %}
+    {% if p.post_cat == 'BM' %}
+     <div class="col-md-12">
+         <div class="blog-entry ftco-animate d-md-flex">
+             <div class="text text-2 pl-md-4">
+                 <h3 class="mb-2"><a href="/{{p.id}}">{{ p.post_name}}</a></h3>
+                 <div class="meta-wrap">
+                     <p class="meta">
+                         <span><i class="icon-calendar mr-2"></i>{{ p.time_in|date:'d M Y' }}</span>
+                     </p>
+                 </div>
+                 <p class="mb-4">{{ p.post_text|truncatechars:20}}</p>
+                 <p><a href="/{{p.id}}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+             </div>
+         </div>
+     </div>
+
+    {% endif %}
+    {% endfor %}
+
+    {% else %}
+
+     <div class="col-md-12">
+         <div class="blog-entry ftco-animate d-md-flex">
+             <div class="text text-2 pl-md-4">
+                 <h3 class="mb-2"><a href=""> No Publications in category yet </a></h3>
+             </div>
+         </div>
+     </div>
+
+    {% endif %}
+
+{% endblock content %}

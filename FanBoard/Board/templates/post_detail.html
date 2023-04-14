@@ -1,0 +1,72 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+<div id="colorlib-main">
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <h3 class="mb-2"> Приятного чтения! </h3> </div> </section>
+
+<div class="col-md-12">
+    <div class="blog-entry ftco-animate d-md-flex">
+        <div class="text text-2 pl-md-4">
+            <h3 class="mb-2">
+                <a href="">{{ post.post_name}}</a>
+            </h3>
+                <div class="meta-wrap">
+                     <p class="meta">
+                         <span><i class="icon-calendar mr-2"></i>{{ post.time_in|date:'d M Y' }}</span>
+                         <span><i class="icon-user mr-2"></i>{{ post.post_author }}</span>
+                         <span><i class="icon-people mr-2"></i>{{ post.post_cat }} </span>
+                     </p>
+                 </div>
+                 <p class="mb-4">{{ post.post_text}}</p>
+             </div>
+         </div>
+     </div>
+<hr>
+
+<div id="colorlib-main">
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <h5 class="mb-2"> Комментарии </h5>  </section> </div>
+<br>
+<hr>
+{% for c in comments %}
+{% if c.com_post.id == post.id %}
+{% if c.com_accept %}
+
+
+<div class="col-md-12">
+    <div class="text text-2 pl-md-4">
+        <h6 class="mb-2"> {{ c.com_author}} </h6>
+        <p class="mb-4">{{ c.com_text}}</p>
+    </div>
+</div>
+
+{% endif %}
+{% endif %}
+{% endfor %}
+<hr>
+
+<div class="col-md-12">
+    <div class="colorlib-footer">
+        <div class="mb-4">
+            <section class="ftco-section ftco-no-pt ftco-no-pb">
+                <h5 class="mb-2">
+                    {% if post.post_author.id == user.id %}
+                    <a href="{{post.id}}/comment"> <i class="icon-envelope mr-2"> </i> Send comment </a> <br>
+                    <a href="{{post.id}}/edit"> <i class="icon-edit mr-2"> </i> Edit post </a> <br>
+                    <a href="{{post.id}}/delete"> <i class="icon-trash-o mr-2"> </i> Delete post </a>
+                    {% else %}
+                    <a href="{{post.id}}/comment"> <i class="icon-envelope mr-2"> </i> Send comment </a> <br>
+                </h5>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+{% endif %}
+
+{% endblock content %}

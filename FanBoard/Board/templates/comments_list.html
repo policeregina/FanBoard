@@ -1,0 +1,32 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+    Comments
+{% endblock title %}
+
+{% block content %}
+
+    {% for c in com %}
+    {% if c.com_post.post_author.id == user.id %}
+    {% if not c.com_accept %}
+     <div class="col-md-12">
+         <div class="blog-entry ftco-animate d-md-flex">
+             <div class="text text-2 pl-md-4">
+                 <h3 class="mb-2"><a href="{{c.id}}">{{ c.com_author}}</a></h3>
+                 <div class="meta-wrap">
+                     <p class="meta">
+                         <span><i class="icon-calendar mr-2"></i>{{ c.time_in|date:'d M Y ' }}</span>
+                         <span><i class="icon-book mr-2"></i>{{ c.com_post }}</span>
+                     </p>
+                 </div>
+                 <p class="mb-4">{{ c.com_text|truncatechars:20}}</p>
+                 <p><a href="{{c.id}}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+             </div>
+         </div>
+     </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+
+{% endblock content %}

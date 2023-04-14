@@ -1,0 +1,42 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+<div id="colorlib-main">
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <h3 class="mb-2"> Что же они пишут? </h3> </div> </section>
+
+<div class="col-md-12">
+    <div class="blog-entry ftco-animate d-md-flex">
+        <div class="text text-2 pl-md-4">
+            <h3 class="mb-2">
+                <a href="">{{ com.com_author}}</a>
+            </h3>
+                <div class="meta-wrap">
+                     <p class="meta">
+                         <span><i class="icon-calendar mr-2"></i>{{ com.time_in|date:'d M Y' }}</span>
+                         <span><i class="icon-book mr-2"></i>{{ com.com_post.post_name }} </span>
+                     </p>
+                 </div>
+                 <p class="mb-4">{{ com.com_text}}</p>
+             </div>
+         </div>
+     </div>
+<hr>
+
+<div class="col-md-12">
+    <div class="colorlib-footer">
+        <div class="mb-4">
+            <section class="ftco-section ftco-no-pt ftco-no-pb">
+                <h5 class="mb-2">
+                    <a href="{{com.id}}/accept"> <i class="icon-edit mr-2"> </i> Accept comment </a> <br>
+                    <a href="{{com.id}}/delete"> <i class="icon-trash-o mr-2"> </i> Delete comment </a>
+                </h5>
+            </section>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

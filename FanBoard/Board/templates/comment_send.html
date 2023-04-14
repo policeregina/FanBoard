@@ -1,0 +1,20 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+    Send Comment
+{% endblock title %}
+
+{% block content %}
+<div id="colorlib-main">
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <h3 class="mb-2"> Поделись своим мнением </h3> </div> </section>
+<div class="col-md-12">
+<form action = "" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+  <input type="submit" value="Save"/>
+</form>
+</div>
+
+
+{% endblock content %}
